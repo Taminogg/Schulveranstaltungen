@@ -1,3 +1,6 @@
 [submodule "core"]
 	path = core
 	url = https://github.com/htl-grieskirchen-core/core
+[submodule "syp-core"]
+	path = syp-core
+	url = https://github.com/Jaster-Master/syp-core.git
