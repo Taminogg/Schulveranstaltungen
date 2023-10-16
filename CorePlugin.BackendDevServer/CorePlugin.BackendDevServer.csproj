@@ -16,8 +16,8 @@
 
     <ItemGroup>
       <ProjectReference Include="..\CorePlugin.Plugin\CorePlugin.Plugin.csproj" />
-      <ProjectReference Include="..\core\Core.AuthLib\Core.AuthLib.csproj" />
       <ProjectReference Include="..\syp-core\Core.AuthLib\Core.AuthLib.csproj" />
+      <ProjectReference Include="..\syp-core\Core.Plugin.Interface\Core.Plugin.Interface.csproj" />
     </ItemGroup>
 
     <ItemGroup>
