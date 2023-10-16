@@ -8,7 +8,8 @@
     "watch": "nx build --watch --configuration development",
     "test": "nx test",
     "postinstall": "node ./decorate-angular-cli.js",
-    "apiGen": "openapi-generator-cli generate --generator-key angular"
+    "generateBackend": "openapi-generator-cli generate --generator-key angularBackend",
+    "generateSecureBackend": "openapi-generator-cli generate --generator-key angularSecureBackend"
   },
   "private": true,
   "dependencies": {

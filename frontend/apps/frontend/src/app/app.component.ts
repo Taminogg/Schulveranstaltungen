@@ -1,6 +1,7 @@
 ﻿import {Component, OnInit} from '@angular/core';
 import {SampleService} from "./backend";
 import {switchMap, tap} from "rxjs";
+import {WebUntisService} from "./secureBackend";
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,8 @@ export class AppComponent implements OnInit {
   withoutAuth: boolean = false;
   withAuth: boolean = false;
 
-  constructor(private sampleService: SampleService) { }
+  constructor(private sampleService: SampleService, private webuntisService: WebUntisService) {
+  }
 
   ngOnInit(): void {
     this.printDisclaimer();
@@ -27,7 +29,7 @@ export class AppComponent implements OnInit {
     console.info('You\'re running the plugin-template!');
     console.info('It is just a sample, to show how to use the backend API. Feel free to remove it.');
     console.info('If you start the BackendDev-Server, it is available at https://localhost:7226/swagger/index.html');
-    console.info('If you have implemented new Endpoints, just call the `apiGen` npm-script in package.json');
+    console.info('If you have implemented new Endpoints, just call the `generateBackend` npm-script in package.json');
     console.log('-'.repeat(100));
   }
 
