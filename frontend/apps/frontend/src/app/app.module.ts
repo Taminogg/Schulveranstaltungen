@@ -6,9 +6,9 @@ import {ApiModule, Configuration} from './backend';
 import {HttpClientModule} from '@angular/common/http';
 import {ConfigurationService} from "./core/configuration.service";
 
-export function initConfig(backendConfigService: ConfigurationService): () => Promise<void> {
+export function initConfig(configService: ConfigurationService): () => Promise<void> {
   return async () => {
-    await backendConfigService.init();
+    await configService.init();
   };
 }
 
