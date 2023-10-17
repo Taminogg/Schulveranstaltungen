@@ -10,6 +10,7 @@ builder.Services.AddSwaggerGen(x => x.AddSwaggerGenHeader());
 
 // Add Authentication
 builder.AddHeaderAuth();
+builder.Services.AddSingleton(RsaService.ImportRSAKey("./keys/" + builder.Configuration["RSA:private-key"], true));
 
 /*
  *  ___   ___    _  _  ___ _____   _____ ___  _   _  ___ _  _
