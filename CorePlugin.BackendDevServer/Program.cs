@@ -1,4 +1,5 @@
 using Core.AuthLib;
+using Core.AuthLib.Services;
 using CorePlugin.Plugin;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -30,9 +31,14 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
+var allowedOrigins = app.Configuration.GetSection("AllowedOrigins").Get<string[]>();
+app.UseCors(policyBuilder => policyBuilder
+    .AllowAnyHeader()
+    .AllowAnyMethod()
+    .AllowCredentials()
+    .WithOrigins(allowedOrigins)
+);
 
-app.UseHttpsRedirection();
 app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();

@@ -1,7 +1,7 @@
 ﻿import {APP_INITIALIZER, NgModule} from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {BrowserModule} from '@angular/platform-browser';
 
-import { AppComponent } from './app.component';
+import {AppComponent} from './app.component';
 import {ApiModule, Configuration} from './backend';
 import {HttpClientModule} from '@angular/common/http';
 import {ConfigurationService} from "./core/configuration.service";
@@ -31,4 +31,5 @@ export function initConfig(configService: ConfigurationService): () => Promise<v
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+}

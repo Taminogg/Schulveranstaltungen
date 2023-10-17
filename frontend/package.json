@@ -3,12 +3,12 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "nx",
-    "start": "nx serve",
+    "start": "nx serve --port=4301",
     "build": "nx build",
     "watch": "nx build --watch --configuration development",
     "test": "nx test",
     "postinstall": "node ./decorate-angular-cli.js",
-    "apiGen": "openapi-generator-cli generate --generator-key angular"
+    "generateBackendApi": "openapi-generator-cli generate --generator-key angular"
   },
   "private": true,
   "dependencies": {
