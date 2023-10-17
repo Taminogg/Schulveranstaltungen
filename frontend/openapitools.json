@@ -4,15 +4,10 @@
   "generator-cli": {
     "version": "6.5.0",
     "generators": {
-      "angularBackend": {
+      "angular": {
         "generatorName": "typescript-angular",
         "output": "./apps/frontend/src/app/backend",
         "inputSpec": "http://localhost:5101/swagger/v1/swagger.json"
-      },
-      "angularSecureBackend": {
-        "generatorName": "typescript-angular",
-        "output": "./apps/frontend/src/app/secureBackend",
-        "inputSpec": "http://10.90.0.11:5002/swagger/v1/swagger.json"
       }
     }
   }

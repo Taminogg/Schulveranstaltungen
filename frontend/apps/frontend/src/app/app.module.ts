@@ -2,38 +2,30 @@
 import {BrowserModule} from '@angular/platform-browser';
 
 import {AppComponent} from './app.component';
-import {ApiModule as BackendApiModule, Configuration as BackendConfiguration} from './backend';
-import {ApiModule as SecureBackendApiModule, Configuration as SecureBackendConfiguration} from './secureBackend';
+import {ApiModule, Configuration} from './backend';
 import {HttpClientModule} from '@angular/common/http';
-import {BackendConfigurationService, SecureBackendConfigurationService} from "./core/configuration.service";
+import {ConfigurationService} from "./core/configuration.service";
 
-export function initConfig(backendConfigService: BackendConfigurationService, secureBackendConfigService: SecureBackendConfigurationService): () => Promise<void> {
+export function initConfig(backendConfigService: ConfigurationService): () => Promise<void> {
   return async () => {
     await backendConfigService.init();
-    await secureBackendConfigService.init();
   };
 }
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, BackendApiModule, SecureBackendApiModule, HttpClientModule],
+  imports: [BrowserModule, ApiModule, HttpClientModule],
   providers: [
     {
       provide: APP_INITIALIZER,
       useFactory: initConfig,
-      deps: [BackendConfigurationService, SecureBackendConfigurationService],
+      deps: [ConfigurationService],
       multi: true
     },
     {
-      provide: BackendConfiguration,
-      useFactory: (configService: BackendConfigurationService) => configService.getConfig(),
-      deps: [BackendConfigurationService],
-      multi: false
-    },
-    {
-      provide: SecureBackendConfiguration,
-      useFactory: (configService: SecureBackendConfigurationService) => configService.getConfig(),
-      deps: [SecureBackendConfigurationService],
+      provide: Configuration,
+      useFactory: (configService: ConfigurationService) => configService.getConfig(),
+      deps: [ConfigurationService],
       multi: false
     }
   ],

@@ -1,53 +1,28 @@
 import {Injectable} from '@angular/core';
-import {Configuration as BackendConfiguration} from "../backend";
-import {Configuration as SecureBackendConfiguration} from "../secureBackend";
+import {Configuration} from "../backend";
 import {AuthService} from "./auth.service";
 import {environment} from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
-export class BackendConfigurationService {
-  private config: BackendConfiguration = new BackendConfiguration();
+export class ConfigurationService {
+  private config: Configuration = new Configuration();
 
   constructor(private authService: AuthService) {
   }
 
   async init(): Promise<void> {
     const token = await this.authService.getToken();
-    this.config = new BackendConfiguration({
+    this.config = new Configuration({
       credentials: {
         'Bearer': token
       },
-      basePath: environment.backend
+      basePath: environment.backendUrl
     });
   }
 
-  getConfig(): BackendConfiguration {
-    return this.config;
-  }
-}
-
-@Injectable({
-  providedIn: 'root'
-})
-export class SecureBackendConfigurationService {
-  private config: SecureBackendConfiguration = new SecureBackendConfiguration();
-
-  constructor(private authService: AuthService) {
-  }
-
-  async init(): Promise<void> {
-    const token = await this.authService.getToken();
-    this.config = new SecureBackendConfiguration({
-      credentials: {
-        'Bearer': token
-      },
-      basePath: environment.secureBackend
-    });
-  }
-
-  getConfig(): SecureBackendConfiguration {
+  getConfig(): Configuration {
     return this.config;
   }
 }
