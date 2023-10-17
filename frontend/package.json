@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "nx",
     "start": "nx serve --port=4301",
-    "build": "nx build",
+    "build": "nx reset & nx build",
     "watch": "nx build --watch --configuration development",
     "test": "nx test",
     "postinstall": "node ./decorate-angular-cli.js",
