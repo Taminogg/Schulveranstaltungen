@@ -18,7 +18,7 @@ namespace SYP_Schulveranstaltungen.Services
             return _db.SchoolClasses.ToList();
         }
 
-        internal List<Vehicle> GetVeicles()
+        internal List<Vehicle> GetVehicles()
         {
             return _db.Vehicles.ToList();
         }

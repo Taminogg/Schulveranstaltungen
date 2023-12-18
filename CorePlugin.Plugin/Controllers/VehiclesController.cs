@@ -14,10 +14,10 @@ namespace SYP_Schulveranstaltungen.Controllers
         [HttpGet]
         public List<VehicleDto> GetAllVehicles()
         {
-            return _dbService.GetVeicles().Select(x => new VehicleDto
+            return _dbService.GetVehicles().Select(x => new VehicleDto
             {
                 Id = x.Id,
-                VehicleName = x.Name
+                Name = x.Name
             }).ToList();
         }
     }

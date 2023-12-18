@@ -6,10 +6,10 @@ namespace SYP_Schulveranstaltungen.Controllers
 {
     [Route("[controller]")]
     [ApiController]
-    public class ClazzController
+    public class SchoolClassController : Controller
     {
         private readonly DbService _dbService;
-        public ClazzController(DbService dbService) => _dbService = dbService;
+        public SchoolClassController(DbService dbService) => _dbService = dbService;
 
         [HttpGet]
         public List<SchoolClassDto> GetAllClasses()

@@ -1,5 +1,4 @@
-﻿using SchoolEventDbLib;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace SYP_Schulveranstaltungen.Dtos
 {

@@ -17,7 +17,7 @@ public class Plugin : ICorePlugin
         string location = System.Reflection.Assembly.GetEntryAssembly()!.Location;
         string dataDirectory = Path.GetDirectoryName(location)!;
         connectionString = connectionString?.Replace("|DataDirectory|", dataDirectory + Path.DirectorySeparatorChar);
-        Console.WriteLine($"******** ConnectionString: {connectionString}");
+        //Console.WriteLine($"******** ConnectionString: {connectionString}");
         builder.Services.AddDbContext<ExcursionContext>(options => options.UseSqlite(connectionString));
 
         builder.Services.AddHostedService<DbAssertionService>();
